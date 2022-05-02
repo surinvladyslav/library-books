@@ -1,4 +1,4 @@
-module.exports = class CustomError extends Error {
+module.exports = class BaseErrors extends Error {
     status;
 
     constructor(message, status) {
@@ -7,14 +7,14 @@ module.exports = class CustomError extends Error {
     }
 
     static UnouthorizedError(message) {
-        return new CustomError(message || 'user not authorized', 401)
+        return new BaseErrors(message || 'user not authorized', 401)
     }
 
     static NotFound(message) {
-        return new CustomError(message, 404)
+        return new BaseErrors(message, 404)
     }
 
     static BadRequest(message) {
-        return new CustomError(message, 400)
+        return new BaseErrors(message, 400)
     }
 }
